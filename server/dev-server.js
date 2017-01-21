@@ -13,9 +13,9 @@ const server = new WebpackDevServer(compiler, {
             res.sendFile('index.html', { root: __dirname })
         });
 
-        app.get('/assets/:file', (req, res) => {
-            const safeFilePath = req.params.file.replace(/\.\.\//gi, '');
-            res.sendFile(safeFilePath, { root: path.join(__dirname, '..', 'assets') });
+        app.get('/assets/:directory/:file', (req, res) => {
+            const rootPath = path.join(__dirname, '..', 'assets', req.params.directory);
+            res.sendFile(req.params.file, { root: rootPath });
         });
     },
     
