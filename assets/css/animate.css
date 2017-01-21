@@ -1,0 +1,102 @@
+/* 
+	*** Start of forwards and backwards slider ***
+*/
+
+/* Set up our containers and animations */
+.view-animate-container
+{
+	position: relative;
+	padding-top: 15px;
+	width: calc(100% + 15px) !important;
+}
+ng-view
+{
+	width:calc(100% - 15px);
+}
+
+.view-animate-container, ng-view
+{	
+	-webkit-overflow-scrolling: touch;
+	overflow-x:hidden;
+	overflow-y: auto;
+	display:block;
+	z-index: 0;
+}
+
+.view-animate.ng-enter, .view-animate.ng-leave
+{
+	width:calc(100% - 15px);
+	transition: all 0.65s !important;
+	position: absolute;
+	left: 0px;
+	-webkit-transform: translate3d(0%,0,0);
+	-moz-transform: translate3d(0%,0,0);
+	transform: translate3d(0%,0,0); 
+}
+
+/* Forward animation */
+.view-animate-container.next .view-animate.ng-enter 
+{
+	left:100%;
+	left:calc(100% - 15px);
+	-webkit-transform: translate3d(0%,0,0);
+	-moz-transform: translate3d(0%,0,0);
+	transform: translate3d(0%,0,0); 
+}
+.view-animate-container.next .view-animate.ng-enter.ng-enter-active
+{
+	left:100%;
+	left:calc(100% - 15px);
+	-webkit-transform: translate3d(-100%,0,0);
+	-moz-transform: translate3d(-100%,0,0);
+	transform: translate3d(-100%,0,0); 
+}
+.view-animate-container.next .view-animate.ng-leave.ng-leave
+{
+	left: -15px;
+	-webkit-transform: translate3d(0,0,0);
+	-moz-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0); 
+}
+.view-animate-container.next .view-animate.ng-leave.ng-leave-active 
+{
+	left: -15px;
+	-webkit-transform: translate3d(-100%,0,0);
+	-moz-transform: translate3d(-100%,0,0);
+	transform: translate3d(-100%,0,0); 
+}
+
+/* Backwards animation */
+.view-animate-container.previous .view-animate.ng-enter 
+{
+	left:-100%;
+	left:calc(-100% + 15px);
+	-webkit-transform: translate3d(0%,0,0);
+	-moz-transform: translate3d(0%,0,0);
+	transform: translate3d(0%,0,0); 
+}
+.view-animate-container.previous .view-animate.ng-enter.ng-enter-active
+{
+	left:-100%;
+	left:calc(-100% + 15px);
+	-webkit-transform: translate3d(100%,0,0);
+	-moz-transform: translate3d(100%,0,0);
+	transform: translate3d(100%,0,0); 
+}
+.view-animate-container.previous .view-animate.ng-leave.ng-leave
+{
+	left: 15px;
+	-webkit-transform: translate3d(0,0,0);
+	-moz-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0); 
+}
+.view-animate-container.previous .view-animate.ng-leave.ng-leave-active 
+{
+	left: 15px;
+	-webkit-transform: translate3d(100%,0,0);
+	-moz-transform: translate3d(100%,0,0);
+	transform: translate3d(100%,0,0); 
+}
+/* 
+*** End of forwards and backwards slider ***
+*/

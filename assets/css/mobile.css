@@ -1,0 +1,47 @@
+header h1
+{
+	font-size: 14pt;
+}
+
+.office-status
+{
+	padding: 5px 0px 0px 30px ;
+	width: 370px;
+}
+.office-status img
+{
+	width: 30px;
+	height: 31px;
+}
+.office-status p
+{
+	height: 30px;
+	line-height: 30px;
+	font-size: 11pt;
+}
+
+#index .office-status
+{
+	padding-top: 13px;
+}
+
+#confirm-details h4, #issue h4
+{
+	font-size: 9pt;
+
+}
+#confirm-details table tr td, #issue table tr td
+{
+	font-size: 11pt;
+	padding: 5px;
+}
+#confirm-details #description, #issue #description
+{
+	padding: 5px;
+	font-size: 10pt;
+}
+#confirm-details table img, #issue table img
+{
+	width: 150px;
+	margin: 5px;
+}
