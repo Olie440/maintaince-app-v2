@@ -4,13 +4,19 @@ const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 
 const compiler = webpack(config);
+
 const server = new WebpackDevServer(compiler, {
-    contentBase: path.join(__dirname, '..', 'assets'),
+    contentBase: '../src',
 
     setup: function(app) {
         app.get('/', (req, res) => {
             res.sendFile('index.html', { root: __dirname })
-        })
+        });
+
+        app.get('/assets/:file', (req, res) => {
+            const safeFilePath = req.params.file.replace(/\.\.\//gi, '');
+            res.sendFile(safeFilePath, { root: path.join(__dirname, '..', 'assets') });
+        });
     },
     
     publicPath: '/bundles/',
