@@ -7,7 +7,7 @@ module.exports = {
     context: path.join(__dirname, 'src'),
     entry: {
         app: './app.js',
-        vendor: ['angular']
+        vendor: ['angular', 'angular-route', 'angular-cookie']
     },
     output: {
         path: path.join(__dirname, 'dist'),
