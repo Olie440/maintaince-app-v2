@@ -21,6 +21,8 @@
   "homepage": "https://github.com/Olie440/maintaince-app-v2#readme",
   "devDependencies": {
     "angular": "1.6.1",
+    "angular-cookie": "4.1.0",
+    "angular-route": "1.6.1",
     "babel-core": "6.22.1",
     "babel-loader": "6.2.10",
     "babel-preset-babili": "0.0.10",

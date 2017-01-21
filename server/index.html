@@ -1,8 +1,60 @@
 <!doctype html>
-<html>
-<head></head>
-<body>
-	<script type="text/javascript" src="/bundles/vendor.bundle.js"></script>
-	<script type="text/javascript" src="/bundles/app.bundle.js"></script>
+<html >
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+    <!-- My CSS -->
+    <link href="/assets/css/animate.css" type="text/css" rel="stylesheet">
+    <link href="/assets/css/main.css" type="text/css" rel="stylesheet">
+    <link href="/assets/css/mobile.css" media="(max-width: 350px)" type="text/css" rel="stylesheet">
+</head>
+<body ng-app="MaintenanceApp">
+    <header ng-controller="HeaderController">
+        <h1>Maintaince Reporting app</h1>
+
+        <!-- Desktop Welcome and Logout Prompt -->
+        <div ng-show="user" class="welcome hidden-sm hidden-xs">
+            <p>Hello, {{user.firstName}}</p>
+            <a href="#/logout">Click here to log out</a>
+        </div> 
+
+        <!-- Mobile Menu + Button -->
+        <!-- Button -->
+        <a ng-click="toggleMenu()" ng-show="user" class="expand-menu orange {{buttonClass}} hidden-lg hidden-md">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </a>
+
+        <!-- Menu -->
+        <div id="menu" ng-show="menuShow" class="hidden-lg hidden-md" >
+            <a ng-repeat="item in menuItems" ng-click="toggleMenu()" href="{{ item.link }}">{{ item.text }}</a>
+        </div>
+    </header>
+
+    <div class="row">
+        <!-- Left Column -->
+        <div id= "left-col" class="col-md-3 col-lg-3 hidden-sm hidden-xs">
+            <div class="col-lg-12 col-md-12">
+                <a href="#/next/new-issue" class="btn orange btn-lg">Report New Issue</a>
+                <a href="#/next/reported-issues" class="btn orange btn-lg">View Reported Issues</a>
+                <a href="#/next/known-issues" class="btn orange btn-lg">View Known Issues</a>
+            </div>
+        </div>
+
+        <!-- Main Column / View -->
+        <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+            <section class="view-animate-container {{mode}}">
+                <ng-view class="view-animate"></ng-view>
+            </section>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/bundles/vendor.bundle.js"></script>
+    <script type="text/javascript" src="/bundles/app.bundle.js"></script>
 </body>
 </html>

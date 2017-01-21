@@ -1,0 +1,22 @@
+<section id="login">
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+            <form name="loginForm"  ng-controller="LoginController">
+                <div class="alert alert-danger" ng-show="loginError">{{message}}</div>
+                <!-- Username -->
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon orange">Username</span>
+                    <input type="text" class="form-control" ng-minlength="4" ng-maxlength="16" name="username" ng-model="request.username" required>
+                </div>
+
+                <!-- Password -->
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon orange">Password</span>
+                    <input type="password" class="form-control" ng-minlength="4" ng-maxlength="16" name="password" ng-model="request.password" required>
+                </div>
+
+                <button type="button" ng-disabled="!loginForm.$valid" ng-click="login()" class="btn orange btn-lg">Login</button>
+            </form>
+        </div>
+    </div>
+</section>
