@@ -1,0 +1,22 @@
+<section id="index">
+    <div class="row hidden-md hidden-lg">
+        <div class="col-xs-12 col-sm-12">
+
+            <h1>Hey {{user.firstName}}!</h1>
+
+            <!-- List Group -->
+            <div class="list-group orange">
+                <a href="#/next/new-issue" class="list-group-item">Report New Issue</a>
+                <a href="#/next/reported-issues" class="list-group-item">View Reported Issues</a>
+                <a href="#/next/known-issues" class="list-group-item">View Known Issues</a>
+            </div>
+
+            <office-status></office-status>
+        </div>
+    </div>
+
+    <div class="row visible-md visible-lg">
+        <div class="centered-message"><h1>Please select an option to your left</h1></div>
+        <office-status></office-status>
+    </div>
+</section>

@@ -13,9 +13,12 @@ const server = new WebpackDevServer(compiler, {
             res.sendFile('index.html', { root: __dirname })
         });
 
-        app.get('/assets/:directory/:file', (req, res) => {
-            const rootPath = path.join(__dirname, '..', 'assets', req.params.directory);
-            res.sendFile(req.params.file, { root: rootPath });
+        app.get('/assets/*', (req, res) => {
+            const pathArray = req.path.split('/');
+            const directory = pathArray.slice(0, -1);
+            const file = pathArray.slice(-1);
+
+            res.sendFile(file, { root: path.join(__dirname, '..', ...directory) });
         });
     },
     

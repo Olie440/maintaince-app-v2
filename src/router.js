@@ -1,8 +1,10 @@
 import loginTemplate from './views/login-template.html';
+import homepageTemplate from './views/homepage-template.html';
 
-const router = function ($routeProvider) {
+function router($routeProvider) {
     $routeProvider
-        .when('/login', { template: loginTemplate });
+        .when('/login', { template: loginTemplate })
+        .when('/', { template: homepageTemplate });
 };
 
-export default [ '$routeProvider', router ]
+export default ['$routeProvider', router ]

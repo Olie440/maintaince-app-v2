@@ -6,7 +6,7 @@ module.exports = {
     devtool: isProduction ? null : 'source-map',
     context: path.join(__dirname, 'src'),
     entry: {
-        app: './app.js',
+        app: ['./components/index.js', './controllers/index.js', './app.js'],
         vendor: ['angular', 'angular-route', 'angular-cookie']
     },
     output: {
