@@ -3,14 +3,15 @@ import template from './template.html';
 const bindings = {
     options: '<',
     label: '@',
-    name: '@',
-    model: '=',
+    ngModel: '=',
 };
 
-function controller($scope) {
+function controller($scope, $element) {
+    const input = $element.find('input')
+
     $scope.selectDisplayMode = 'menu';
 
-    // interact with the elements bellow to create the illusion that the dropdown menu is coming from them
+    // interact with the elements to create the illusion that the dropdown menu is coming from them
     $scope.selectEvents = {
         mouseOver() {
             if ($scope.selectValue === 'Other') {
@@ -52,14 +53,13 @@ function controller($scope) {
 
         change() {
             if ($scope.selectValue === 'Other') {
-                $scope.model = '';
+                $scope.$ctrl.ngModel = '';
                 $scope.selectDisplayMode = 'button'
-                $scope.valid = 'invalid';
-                textbox.focus(); 
+                input[0].focus();
             } else {
-                $scope.model = $scope.selectValue;
+                $scope.$ctrl.ngModel = $scope.selectValue;
                 $scope.selectDisplayMode = 'menu';
-                $scope.valid = 'valid';
+                input.addClass('ng-dirty');
             }
         }
     }
@@ -68,5 +68,5 @@ function controller($scope) {
 export default {
     template, 
     bindings,
-    controller: [ '$scope', controller ]
+    controller: [ '$scope', '$element', controller ]
 }

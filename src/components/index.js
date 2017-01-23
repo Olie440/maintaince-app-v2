@@ -7,6 +7,7 @@ import fileUpload from './file-upload/component.js';
 const module = angular
 	.module('MaintenanceApp.components', [])
     .component('officeStatus', officeStatus)
+    .component('dropdownWithTextbox', dropdownWithTextbox)
     .component('fileUpload', fileUpload);
 
 export default module

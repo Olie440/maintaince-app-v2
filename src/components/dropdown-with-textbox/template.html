@@ -1,14 +1,23 @@
 <div class="input-group input-group-lg dropdown-with-textbox">
-    <span class="input-group-addon orange">{{ label }}</span>
+    <span class="input-group-addon orange">{{ $ctrl.label }}</span>
 
     <!-- tfw no spread operator :( -->
-    <select ng-model="selectValue" class="input-lg {{ selectDisplayMode }} dropdown-with-textbox__select" ng-mouseover="selectEvents.mouseOver()" ng-mousedown="selectEvents.mouseDown()" ng-mouseout="selectEvents.mouseOut()" ng-mouseup="selectEvents.mouseUp()" ng-blur="selectEvents.blur()" ng-change="selectEvents.change()">
-        <option ng-repeat="option in options">{{ option }}</option>
+    <select  
+        ng-model="selectValue"
+        class="input-lg {{ selectDisplayMode }}" 
+        ng-mouseover="selectEvents.mouseOver()"
+        ng-mousedown="selectEvents.mouseDown()"
+        ng-mouseout="selectEvents.mouseOut()"
+        ng-mouseup="selectEvents.mouseUp()"
+        ng-blur="selectEvents.blur()" 
+        ng-change="selectEvents.change()" >
+            <option ng-repeat="option in $ctrl.options">{{ option }}</option>
+            <option>Other</option>
     </select>
 
-    <input type="text" class="form-control dropdown-with-textbox__textbox" ng-model="model" required />
+    <input type="text" class="form-control" ng-model="$ctrl.ngModel" required />
 
     <span class="input-group-btn">
         <button class="btn gray {{ buttonState }}" type="button"><span class="caret"></span></button>
-    </span>
+    </span> 
 </div>
