@@ -1,7 +1,11 @@
 {
   "presets": [
     "es2015",
-    "stage-0",
-    "babili"
-  ]
+    "stage-0"
+  ],
+  "env": {
+    "production":{
+      "presets": ["babili"]
+    }
+  }
 }
