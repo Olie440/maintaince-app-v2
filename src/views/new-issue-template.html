@@ -1,0 +1,48 @@
+<section id="new-issue" ng-controller="NewIssueController">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+            <h1 class="visible-xs">Report Issue</h1>
+            <form name="newIssueForm">
+                <!-- Category -->
+                <dropdown-with-textbox options="categories" data-label="Category" name="" ng-model="request.category" ></dropdown-with-textbox>
+
+                <!-- Property -->
+                <dropdown-with-textbox options="properties" data-label="Property" name="property" ng-model="request.property"></dropdown-with-textbox>
+
+                <!-- Flat -->
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon orange">Flat</span>
+                    <input type="text" class="form-control" name="flat" ng-minlength="0" ng-maxlength="3"  ng-model="request.flat">
+                </div>
+
+                <!-- Room -->
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon orange">Room</span>
+                    <input type="text" class="form-control" name="room" ng-model="request.room" required>
+                </div>
+
+                <!-- Description -->
+                <div class="panel orange">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Description of the issue</h3>
+                  </div>
+                  <div class="panel-body">
+                    <textarea ng-minlength="7" class="form-control" name="description" ng-model="request.description" required></textarea>
+                  </div>
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="right-col col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6">
+                    <!-- Add Picture -->
+                    <file-upload ng-model="request.photo"></file-upload>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6">
+                    <!-- Submit -->
+                    <button type="button" ng-disabled="!newIssueForm.$valid" ng-click="submitReport()" class="btn orange btn-lg">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
