@@ -22,6 +22,7 @@
   "devDependencies": {
     "angular": "1.6.1",
     "angular-cookie": "4.1.0",
+    "angular-mocks": "^1.6.1",
     "angular-route": "1.6.1",
     "babel-core": "6.22.1",
     "babel-loader": "6.2.10",
