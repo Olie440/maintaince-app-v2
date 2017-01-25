@@ -6,8 +6,7 @@ const bindings = {
 };
 
 
-function controller($scope, $element) { 
-    const button = $element[0].querySelector('button');
+function controller($scope, $element) {
     const input = $element[0].querySelector('input');
 
     $scope.compressionSupport = true;
