@@ -7,7 +7,7 @@
     "start": "npm run build && node server/server.js",
     "dev": "node server/dev-server.js",
     "build": "webpack",
-    "test": "karma start"
+    "test": "npm run build && karma start"
   },
   "repository": {
     "type": "git",
