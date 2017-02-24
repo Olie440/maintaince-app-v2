@@ -1,5 +1,3 @@
-
-
 describe('component: file upload', () => {
     let element;
     let scope;

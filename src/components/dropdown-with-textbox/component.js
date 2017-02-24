@@ -16,7 +16,7 @@ function controller($scope, $element) {
         mouseOver() {
             if ($scope.selectValue === 'Other') {
                 $scope.selectDisplayMode = 'menu';
-            }  
+            }
 
             $scope.buttonState = 'hover';
         },
@@ -44,7 +44,7 @@ function controller($scope, $element) {
         },
 
         blur() {
-            if ($scope.selectValue == 'Other') {
+            if ($scope.selectValue === 'Other') {
                 $scope.selectDisplayMode = 'button';
             }
 
@@ -66,7 +66,7 @@ function controller($scope, $element) {
 }
 
 export default {
-    template, 
+    template,
     bindings,
     controller: [ '$scope', '$element', controller ]
 }
